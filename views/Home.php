@@ -8,7 +8,8 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/mine.css">
+    <link href="css/mine.css" rel="stylesheet" >
+    
 </head>
 <!-- " filter: invert(); background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0.2) 100% ), url('images/background1.png') no-repeat center center fixed;background-size: cover;" -->
 
@@ -22,7 +23,8 @@
     <form style="position: absolute; width: 100%">
         <div class="container m-auto" style="width: 100%">
             <div class="shadow-lg">
-                <div class="p-2 rounded-1 border border-2 shadow m-2 Q-box">
+
+                <div id="step-1" class="p-2 rounded-1 border border-2 shadow m-2 Q-box step">
                     <div class="fw-bold text-white p-3">
                         1 ● What would you like to do when working in the future?
                     </div>
@@ -38,13 +40,34 @@
                     <?php echoCheckbox("design and create something yourself", "1-9"); ?>
                     <?php echoCheckbox("Mix ideas together", "1-10"); ?>
 
+                    <div class="m-3 row justify-content-between">
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('1')">Previous</button>
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('2')">Next</button>
+
+                    </div>
+
 
                 </div>
 
-                <div class="p-2 rounded-1 border border-2 shadow m-2 Q-box">
+                <div id="step-2" class="p-2 rounded-1 border border-2 shadow m-2 Q-box step">
                     <div class="fw-bold text-white p-3">
                         2 ● what's the first thing that comes to your mind when thinking about <div
                             class="fw-bold fst-italic text-primary">Engineering?</div>
+                    </div>
+                    <div class="row justify-content-center w-100 m-auto">
+                        <?php echoImgRadio("comp.jpg","2-1","two"); ?>
+                        <?php echoImgRadio("biomed.jpg","2-2","two"); ?>
+                        <?php echoImgRadio("chem.jpg","2-3","two"); ?>
+                        <?php echoImgRadio("civil.jpg","2-4","two"); ?>
+                        <?php echoImgRadio("mech.jpg","2-5","two"); ?>
+                        <?php echoImgRadio("elec.jpg","2-6","two"); ?>
+
+                    </div>
+
+                    <div class="m-3 row justify-content-between">
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('1')">Previous</button>
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('3')">Next</button>
+
                     </div>
                     
                     
@@ -54,7 +77,7 @@
 
                 </div>
 
-                <div class="p-2 rounded-1 border border-2 shadow m-2 Q-box">
+                <div id="step-3" class="p-2 rounded-1 border border-2 shadow m-2 Q-box step">
                     <div class="fw-bold text-white p-3">
                         3 ● what are your favourite subjects?
                     </div>
@@ -67,11 +90,17 @@
                     <?php echoCheckboxN("Biology", "3-5", "three"); ?>
                     <?php echoCheckboxN("Computer Science", "3-6", "three"); ?>
 
+                    <div class="m-3 row justify-content-between">
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('2')">Previous</button>
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('4')">Next</button>
+
+                    </div>
+
 
 
                 </div>
 
-                <div class="p-2 rounded-1 border border-2 shadow m-2 Q-box row">
+                <div id="step-4" class="p-2 rounded-1 border border-2 shadow m-2 Q-box row step">
                     <div class="fw-bold text-white p-3">
                         4 ● Let's say you aren't in engineering, what would you major in instead?
                     </div>
@@ -82,6 +111,12 @@
                     <?php echoRadio("Computer science", "4-3", "4"); ?>
                     <?php echoRadio("Urban planning", "4-4", "4"); ?>
 
+                    <div class="m-3 row justify-content-between">
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('3')">Previous</button>
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('5')">Next</button>
+
+                    </div>
+
 
 
 
@@ -89,7 +124,7 @@
 
                 </div>
 
-                <div class="p-2 rounded-1 border border-2 shadow m-2 Q-box">
+                <div id="step-5" class="p-2 rounded-1 border border-2 shadow m-2 Q-box step">
                     <div class="fw-bold text-white p-3">
                         5 ● talk a bit about yourself.
                     </div>
@@ -107,6 +142,12 @@
                     <?php echoCheckbox("I'd like to reinvent the wheel ( aero, cmp, elec 2 )", "5-11"); ?>
                     <?php echoCheckbox("I'd like to work in a team ( civil, arc, chem ) ", "5-12"); ?>
                     <?php echoCheckbox("I'm competitive ( CMP )", "5-13"); ?>
+
+                    <div class="m-3 row justify-content-between">
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('4')">Previous</button>
+                        <button type="button" class="btn btn-primary col-4" onclick="showStep('5')">Next</button>
+
+                    </div>
 
 
 
@@ -141,8 +182,21 @@
             });
         }
 
+        function showStep(step){
+            const steps = document.getElementsByClassName("step");
+            const Step = document.getElementById("step-" + step);
+            console.log(steps.length)
+            for (let i = 0; i < steps.length; i++) {
+                steps[i].style.display = 'none';
+                
+            }
+            Step.style.display = 'block';
+
+        }
+
         // Example: allow max 3 checkboxes for "options"
         limitCheckboxes("three", 3);
+        showStep("1");
     </script>
 </body>
 

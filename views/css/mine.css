@@ -8,4 +8,17 @@
     background-size: cover;
 }
 
+.picL:hover{
+    transform: rotate(0deg), scale(1.1);
+    
+}
 
+.picL{
+    transform: rotate(5deg);
+    transition-duration: 0.5s;
+    border: 3px solid #00014966;
+}
+
+.pics-select:checked + label{
+    transform: scale(1.1);
+}

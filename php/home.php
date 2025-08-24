@@ -24,7 +24,7 @@ function echoCheckbox($string, $id)
     //                 </div>";
 
     echo "<input type=\"checkbox\" class=\"btn-check\" id=\"" . $id . "\" autocomplete=\"off\">
-          <label class=\"btn text-white\" for=\"" . $id . "\"> ● " . $string . "</label><br>";
+          <label class=\"btn text-white\" style=\"text-align:left;\" for=\"" . $id . "\"> ● " . $string . "</label><br>";
 
 }
 
@@ -41,8 +41,8 @@ function echoRadio($string, $id, $name)
 
 function echoImgRadio($url, $id, $name)
 {
-    echo "<input type=\"radio\" class=\"btn-check img-form\" name=\"".$name."\" id=\"".$id."\" autocomplete=\"off\">
-<label class=\"m-3 rounded-1 col\" style='width: 200px; height:200px; background: url(\"images/".$url."\") no-repeat center center; background-size: cover;' for=\"".$id."\"></label>";
+    echo "<input type=\"radio\" class=\"btn-check pics-select\" name=\"".$name."\" id=\"".$id."\" autocomplete=\"off\">
+<label class=\"m-2 rounded-1 col-4 picL\" style=' height: 30vw; max-height:200px; background: url(\"images/".$url."\") no-repeat center center; background-size: cover; font-size:0;' for=\"".$id."\">p</label>";
 }
 
 
